@@ -1,0 +1,21 @@
+import turtle
+alpha=turtle.Turtle()
+again=''
+while again !='Yes':
+  again=input('Are you ready to start?(Yes) ')
+while again !='No':
+  tcolor=input("Turtle's color: ")
+  tshape=input("Turtle's shape: ")
+  shapes=input("Number of Shapes: ")
+  sides=input("Sides: ")
+  startang=input("Starting angle: ")
+  alpha.color( tcolor )
+  alpha.shape( tshape )
+  alpha.left(int( startang ))
+  for _ in range(int( shapes )):
+    for _ in range(int( sides )):
+      alpha.forward(500/int( sides ))
+      alpha.left(360/int( sides ))
+    alpha.left(360/int( shapes ))
+  alpha.right(int( startang ))
+  again=input("Draw again? Yes or No: ")
