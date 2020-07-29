@@ -1,0 +1,26 @@
+import turtle
+alpha=turtle.Turtle()
+beta=turtle.Turtle()
+charlie=turtle.Turtle()
+color1=input('What color do you want the first turtle to be? ')
+speed1=input('How fast do you want the first turtle to be? ')
+color2=input('What color do you want the second turtle to be? ')
+speed2=input('How fast do you want the second turtle to be? ')
+color3=input('What color do you want the third turtle to be? ')
+speed3=input('How fast do you want the third turtle to be? ')
+
+speed=[speed1, speed2, speed3]
+turtle_list=[alpha, beta, charlie]
+
+alpha.color(color1)
+beta.color(color2)
+charlie.color(color3)
+
+for i in range(3):
+  turtle_list[i].penup()
+  turtle_list[i].goto(-160, 100*i)
+  turtle_list[i].pendown()
+
+for movement in range(100):
+  for i in range(3):            
+    turtle_list[i].forward(float(speed[i]))
