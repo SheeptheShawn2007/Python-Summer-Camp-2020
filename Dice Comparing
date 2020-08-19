@@ -1,0 +1,70 @@
+#Modules
+import random
+
+#Inputs
+dp=input('How many sets? ')
+dr=input('How many dice rolls? ')
+d1=int(dr)
+d2=int(dp)
+
+#Lists
+rolllist=[]
+winnerlist1=[0]
+winnerlist2=[]
+winnernum2=[]
+
+#Variables
+winners=0
+tmp=0
+winnernum1=0
+
+#This is the function
+def rolldice(d):
+    dres=[]
+    for _ in range(d):
+        dres.append(random.randint(1,6))
+    return dres
+
+#This calculates the sets
+for rollnum1 in range(d2):
+    rolllist.append(sum(rolldice(d1)))
+print('The results', rolllist)
+
+for rollnum2 in range(len(rolllist)-1):
+    
+    rollnum3=rollnum2+1
+    
+    if rolllist[tmp]>rolllist[rollnum3]:
+        pass
+
+    if rolllist[tmp]<rolllist[rollnum3]:
+        tmp=rollnum3
+        winnerlist1=[]
+        winnerlist1.append(rollnum3)
+    
+    if rolllist[tmp]==rolllist[rollnum3]:
+        winnerlist1.append(rollnum3)
+
+#Ending sequence        
+if len(winnerlist1)==1:
+    pass
+if len(winnerlist1)>1:
+    if winnerlist1[0]==winnerlist1[1]:
+        winnerlist1.pop(0)
+
+#Printing
+if len(winnerlist1)==1:
+    print('There is 1 winner')
+elif len(winnerlist1)>1:
+    print('There are', len(winnerlist1) ,'winners')
+        
+print('The winning number is', rolllist[winnerlist1[0]])
+        
+for num1 in range(len(winnerlist1)):
+    winnerlist2.append(winnerlist1[num1]+1)
+if len(winnerlist2)==1:
+    print('The winner is:')
+if len(winnerlist2)>1:
+    print('These are the winners:')
+for num2 in range(len(winnerlist2)):
+    print('Number', winnerlist2[num2])
