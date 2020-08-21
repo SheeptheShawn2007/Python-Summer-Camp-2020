@@ -9,7 +9,7 @@ d2=int(dp)
 
 #Lists
 rolllist=[]
-winnerlist1=[0]
+winnerlist1=[]
 winnerlist2=[]
 winnernum2=[]
 
@@ -26,24 +26,23 @@ def rolldice(d):
     return dres
 
 #This calculates the sets
-for rollnum1 in range(d2):
-    rolllist.append(sum(rolldice(d1)))
+
+rolllist = [ sum( rolldice( d1 ) ) for _ in range( d2 ) ]
+    
 print('The results', rolllist)
 
-for rollnum2 in range(len(rolllist)-1):
+for rollnum2 in range(len(rolllist)):
     
-    rollnum3=rollnum2+1
-    
-    if rolllist[tmp]>rolllist[rollnum3]:
+    if rolllist[tmp]>rolllist[rollnum2]:
         pass
 
-    if rolllist[tmp]<rolllist[rollnum3]:
-        tmp=rollnum3
+    if rolllist[tmp]<rolllist[rollnum2]:
+        tmp=rollnum2
         winnerlist1=[]
-        winnerlist1.append(rollnum3)
+        winnerlist1.append(rollnum2)
     
-    if rolllist[tmp]==rolllist[rollnum3]:
-        winnerlist1.append(rollnum3)
+    if rolllist[tmp]==rolllist[rollnum2]:
+        winnerlist1.append(rollnum2)
 
 #Ending sequence        
 if len(winnerlist1)==1:
@@ -65,6 +64,6 @@ for num1 in range(len(winnerlist1)):
 if len(winnerlist2)==1:
     print('The winner is:')
 if len(winnerlist2)>1:
-    print('These are the winners:')
+    print('The winners are:')
 for num2 in range(len(winnerlist2)):
     print('Number', winnerlist2[num2])
